@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { images } from "@/utils/arts";
 
-const image = images[1];
+const image = images[0];
 
 const MyPic = () => {
   return (
