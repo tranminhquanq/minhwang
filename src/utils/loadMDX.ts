@@ -10,7 +10,7 @@ import fs from "fs";
 import { autoLinkHeadingsOptions } from "./rehypeAutolinkPlugin";
 
 const ROOT_PATH = process.cwd();
-const POST_PATH = path.join(ROOT_PATH, "src/contents/notes");
+const POST_PATH = path.join(ROOT_PATH, "src/contents/posts");
 // const NOTE_PATH = path.join(ROOT_PATH, "src/contents/notes");
 
 export async function loadMDX(source: string) {
