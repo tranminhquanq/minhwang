@@ -48,3 +48,20 @@ export const getAllPostsMeta = async () => {
     .filter((meta) => meta.published)
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 };
+
+export const getPost = async (slug: string) => {
+  const TWEET_RE = /<StaticTweet\sid="[0-9]+"\s\/>/g;
+  const source = fs.readFileSync(path.join(POST_PATH, `${slug}.mdx`), "utf-8");
+
+  const { code, frontmatter, matter } = await loadMDX(source);
+
+  const tweetMatch = matter.content.match(TWEET_RE);
+
+  const tweetIDs = tweetMatch?.map((mdxTweet) => {
+    const id = mdxTweet.match(/[0-9]+/g)![0];
+    return id;
+  });
+
+  const meta = { ...frontmatter, slug } as PostMeta;
+  return { meta, code, tweetIDs: tweetIDs ?? [] };
+};
