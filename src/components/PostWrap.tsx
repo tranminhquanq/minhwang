@@ -42,7 +42,6 @@ const PostWrap: FC<Props> = ({ meta, children }) => {
               </time>
             ) : null}
           </div>
-
           <p className="italic">{meta.description}</p>
         </div>
         {children}

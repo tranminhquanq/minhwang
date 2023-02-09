@@ -16,7 +16,12 @@ export const components = {
   },
   img: ({ children, ...props }: { children: React.ReactNode }) => (
     <div className="my-10">
-      <Image {...(props as any)} alt="picture of the author" />
+      <Image
+        {...(props as any)}
+        alt="picture of the author"
+        width={100}
+        height={100}
+      />
     </div>
   ),
 };

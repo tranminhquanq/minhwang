@@ -8,7 +8,7 @@ const TagList: FC<Props> = ({ postTagCountMap }) => {
   const tags = [];
   //@ts-ignore
   for (const [tag, count] of postTagCountMap) {
-    tags.push(<TagListItem tag={tag} count={count} />);
+    tags.push(<TagListItem key={Math.random()} tag={tag} count={count} />);
   }
 
   return (
