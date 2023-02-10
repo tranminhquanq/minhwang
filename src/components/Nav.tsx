@@ -1,7 +1,11 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ThemeSwitch from "@/components/ThemeSwitch";
+const LocalTime = dynamic(() => import("@/components/LocalTime"), {
+  ssr: false,
+});
 
 const routes = [{ route: "/posts", title: "posts" }];
 
@@ -41,17 +45,5 @@ const Nav: FC = () => {
     </header>
   );
 };
-
-function LocalTime() {
-  const timeFomatter = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Asia/Ho_Chi_Minh",
-    hour: "numeric",
-    minute: "numeric",
-    weekday: "short",
-    hour12: false,
-  }).format();
-
-  return <span>{timeFomatter}, Ho Chi Minh City</span>;
-}
 
 export default Nav;

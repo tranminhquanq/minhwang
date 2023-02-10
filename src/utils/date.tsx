@@ -42,3 +42,14 @@ export const validDate = (d: string): string => {
 
   return format(date, "{yyyy}-{MM}-{dd}");
 };
+
+export const getTimeFomatter = () => {
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    weekday: "long",
+    hour12: false,
+  }).format();
+};
