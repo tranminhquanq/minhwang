@@ -24,4 +24,7 @@ export const components = {
       />
     </div>
   ),
+  p: ({ children, ...props }: { children: React.ReactNode }) => (
+    <div {...props}>{children}</div>
+  ),
 };
